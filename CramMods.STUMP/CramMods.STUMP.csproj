@@ -1,8 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 
-		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
 		<PlatformTarget>x64</PlatformTarget>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
@@ -27,5 +28,11 @@
 		<PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
 
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CramMods.NARFI" Version="0.0.2" />
+	  <PackageReference Include="Mutagen.Bethesda" Version="0.36.0" />
+	  <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.22.1" />
+	</ItemGroup>
 	
 </Project>
