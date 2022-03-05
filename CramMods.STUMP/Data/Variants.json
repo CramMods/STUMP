@@ -1,0 +1,138 @@
+{
+  "TexturePacks": {
+    "Select": "Single",
+
+    "Bijin": {
+      "Filter": {
+        "Operator": "AND",
+        "Filters": [{ "Field": "Gender", "Value": "Female" }]
+      },
+      "Overrides": [
+        { "Part": "Body", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1.dds" },
+        { "Part": "Body", "Type": "Normal",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_msn.dds" },
+        { "Part": "Body", "Type": "Specular", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_s.dds" },
+        { "Part": "Body", "Type": "Detail",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_sk.dds" },
+
+        { "Part": "Head", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead.dds" },
+        { "Part": "Head", "Type": "Normal",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead_msn.dds" },
+        { "Part": "Head", "Type": "Specular", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead_s.dds" },
+        { "Part": "Head", "Type": "Detail",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead_sk.dds" },
+        
+        { "Part": "Hands", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1.dds" },
+        { "Part": "Hands", "Type": "Normal",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1_msn.dds" },
+        { "Part": "Hands", "Type": "Specular", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1_s.dds" },
+        { "Part": "Hands", "Type": "Detail",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1_sk.dds" },
+        
+        { "Part": "Feet", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1.dds" },
+        { "Part": "Feet", "Type": "Normal",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_msn.dds" },
+        { "Part": "Feet", "Type": "Specular", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_s.dds" },
+        { "Part": "Feet", "Type": "Detail",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_sk.dds" }
+      ],
+
+      "Variant": {
+        "Type": "Addon",
+        "Select": "Single",
+        "ResetName": true,
+
+        "Age": {
+          "Select": "Single",
+
+          "Young": {
+            "Filter": {
+              "Force": true,
+              "Operator": "AND",
+              "Filters": [
+                { "Field": "Voice", "Operator": "Contains", "Value": "Young" },
+                { "Field": "Race", "Operator": "Contains", "Value": "Nord" }
+              ]
+            },
+            "Overrides": [
+              { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\01 Options\\Young NM for Nord\\textures\\actors\\character\\female\\femalehead_msn.dds" }
+            ]
+          },
+          "Old": {
+            "Filter": {
+              "Force": true,
+              "Operator": "OR",
+              "Filters": [
+                { "Field": "Race", "Operator": "Contains", "Value": "Old" },
+                {
+                  "Operator": "AND",
+                  "Filters": [
+                    { "Field": "Voice", "Operator": "NotContains", "Value": "Soldier" },
+                    { "Field": "Voice", "Operator": "Contains", "Value": "Old" }
+                  ]
+                }
+              ]
+            },
+            "Overrides": [
+              { "Part": "Body", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleold\\femalebody_1_msn.dds" },
+              { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleold\\femalehead_msn.dds" }
+            ]
+          }
+        },
+        "Race": {
+          "Select": "Single",
+
+          "Breton": {
+            "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Breton" },
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\bretonfemale\\femalehead_msn.dds" } ]
+          },
+          "DarkElf": {
+            "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "DarkElf" },
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\darkelffemale\\femalehead_msn.dds" } ]
+          },
+          "Orc": {
+            "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Orc" },
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleorc\\femalehead_msn.dds" } ]
+          },
+          "HighElf": {
+            "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "HighElf" },
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\highelffemale\\femalehead_msn.dds" } ]
+          },
+          "Imperial": {
+            "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Imperial" },
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\imperialfemale\\femalehead_msn.dds" } ]
+          },
+          "Redguard": {
+            "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Redguard" },
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\redguardfemale\\femalehead_msn.dds" } ]
+          }
+        }
+      },
+
+      "Complexion": {
+        "Type": "Addon",
+        "Select": "Single",
+        
+        "Random": {
+          "Select": "Single",
+          "ResetName": true,
+          "NoMoles": {
+            "Weighting": 0.5,
+            "Overrides": [ { "Part": "Head", "Type": "Diffuse", "Path": "Bijin Skin\\01 Options\\No Moles\\textures\\actors\\character\\female\\femalehead.dds" } ]
+          },
+          "Realistic": {
+            "Overrides": [ { "Part": "Head", "Type": "Diffuse", "Path": "Bijin Skin\\01 Options\\Realistic spots\\textures\\actors\\character\\female\\femalehead.dds" } ]
+          }
+        }
+      },
+
+      "Tone": {
+        "Type": "Addon",
+        "Select": "Single",
+  
+        "Strong": {
+          "Type": "Group",
+          "Overrides": [ { "Part": "Head", "Type": "Diffuse", "Path": "Bijin Skin\\01 Options\\Muscles\\textures\\actors\\character\\female\\femalebody_1_msn.dds" } ],
+
+          "Random": { "Weighting": 0.1 },
+          "Likely": {
+            "Weighting": 1.5,
+            "Filter": { "Field": "Class", "Operator": "Contains", "Value": "Soldier" }
+          }
+        }
+      }
+    }
+  }
+}
