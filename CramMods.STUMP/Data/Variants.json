@@ -11,31 +11,32 @@
         { "Part": "Body", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1.dds" },
         { "Part": "Body", "Type": "Normal",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_msn.dds" },
         { "Part": "Body", "Type": "Specular", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_s.dds" },
-        { "Part": "Body", "Type": "Detail",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_sk.dds" },
+        { "Part": "Body", "Type": "Subsurface",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_sk.dds" },
 
         { "Part": "Head", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead.dds" },
         { "Part": "Head", "Type": "Normal",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead_msn.dds" },
         { "Part": "Head", "Type": "Specular", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead_s.dds" },
-        { "Part": "Head", "Type": "Detail",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead_sk.dds" },
+        { "Part": "Head", "Type": "Subsurface",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehead_sk.dds" },
         
         { "Part": "Hands", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1.dds" },
         { "Part": "Hands", "Type": "Normal",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1_msn.dds" },
         { "Part": "Hands", "Type": "Specular", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1_s.dds" },
-        { "Part": "Hands", "Type": "Detail",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1_sk.dds" },
+        { "Part": "Hands", "Type": "Subsurface",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalehands_1_sk.dds" },
         
         { "Part": "Feet", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1.dds" },
         { "Part": "Feet", "Type": "Normal",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_msn.dds" },
         { "Part": "Feet", "Type": "Specular", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_s.dds" },
-        { "Part": "Feet", "Type": "Detail",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_sk.dds" }
+        { "Part": "Feet", "Type": "Subsurface",   "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1_sk.dds" }
       ],
 
       "Variant": {
-        "Type": "Addon",
+        "Type": "Addon, Group",
         "Select": "Single",
-        "ResetName": true,
+        "SkipName": true,
 
         "Age": {
           "Select": "Single",
+          "Type": "Group",
 
           "Young": {
             "Filter": {
@@ -73,6 +74,7 @@
         },
         "Race": {
           "Select": "Single",
+          "Type": "Group",
 
           "Breton": {
             "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Breton" },
@@ -102,12 +104,13 @@
       },
 
       "Complexion": {
-        "Type": "Addon",
+        "Type": "Addon, Group",
         "Select": "Single",
         
         "Random": {
+          "Type": "Group",
           "Select": "Single",
-          "ResetName": true,
+          "SkipName": true,
           "NoMoles": {
             "Weighting": 0.5,
             "Overrides": [ { "Part": "Head", "Type": "Diffuse", "Path": "Bijin Skin\\01 Options\\No Moles\\textures\\actors\\character\\female\\femalehead.dds" } ]
@@ -119,7 +122,7 @@
       },
 
       "Tone": {
-        "Type": "Addon",
+        "Type": "Addon, Group",
         "Select": "Single",
   
         "Strong": {
