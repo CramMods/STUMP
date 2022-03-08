@@ -33,12 +33,16 @@ namespace CramMods.STUMP.Settings
         private List<VariantSettings> _variants = new();
         public List<VariantSettings> Variants { get => _variants; set => _variants = value; }
 
+        public int ForceCount => (_filter == null) ? 0 : FilterForceCount(_filter);
+        private int FilterForceCount(IFilter filter) => (filter is GroupFilter) ? ((GroupFilter)filter).Filters.Sum(f => FilterForceCount(f)) : (filter.Extensions.ContainsKey("Force") && ((bool)filter.Extensions["Force"]! == true)) ? 1 : 0;
+
         public override string ToString()
         {
             string output = (_name == null) ? string.Empty : $"{_name} - ";
             if (_overrides.Count > 0) output += $"O{_overrides.Count} ";
             if (_variants.Count > 0) output += $"V{_variants.Count} ";
-            output += $"W{_weighting}";
+            output += $"W{_weighting} ";
+            output += $"FC{ForceCount}";
             return output;
         }
 
