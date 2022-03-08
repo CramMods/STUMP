@@ -31,7 +31,6 @@ namespace CramMods.STUMP
             IGameEnvironmentState<ISkyrimMod, ISkyrimModGetter> env = new GameEnvironmentState<ISkyrimMod, ISkyrimModGetter>(state.GameRelease, state.DataFolderPath, state.LoadOrderFilePath, null, state.LoadOrder, state.LinkCache);
 
             List<INpcGetter> npcs = state.LoadOrder.PriorityOrder.Npc().WinningOverrides().ToList();
-            //npcs = npcs.FindAll(npc => _testNpcNames.Any(name => npc.EditorID?.Equals(name, StringComparison.InvariantCultureIgnoreCase) ?? false));
             List<IRaceGetter> races = state.LoadOrder.PriorityOrder.Race().WinningOverrides().ToList();
 
             List<RaceGroup> raceGroups = RaceGroupSettings.Value.Flatten(races).ToList();
@@ -43,13 +42,10 @@ namespace CramMods.STUMP
             NARFI.NARFI narfi = new(env);
             narfi.RegisterPlugin(skyrimPlugin);
 
-            Dictionary<INpcGetter, VariantSettings> matches = MatchVariants(npcs, variants, narfi, (total, complete, matched) =>
-            {
-                if (total != complete) Console.Write($"Matching NPCs...  [ {complete} of {total} ]  {(int)((float)complete / total * 100)} %\r");
-                else Console.WriteLine($"\r\nMatched {matched} of {total} NPCs");
-            });
+            Dictionary<INpcGetter, VariantSettings> matches = VariantUtils.MatchVariants(npcs, variants, narfi, WriteMatchProgress);
             List<VariantSettings> distinctVariants = matches.Values.DistinctBy(v => v.ToString()).ToList();
             Console.WriteLine($"There are {distinctVariants.Count} distinct variants");
+
             Console.WriteLine();
 
             Console.WriteLine();
@@ -57,46 +53,17 @@ namespace CramMods.STUMP
             Console.ReadKey();
         }
 
-        private static Dictionary<INpcGetter, VariantSettings> MatchVariants(IEnumerable<INpcGetter> npcs, IEnumerable<VariantSettings> variants, IFieldValueGetter fieldValueGetter, MatchVariantsCallback? callback = null)
+        private static VariantUtils.MatchVariantsCallback WriteMatchProgress = (int total, int complete, int matched) =>
         {
-            Dictionary<INpcGetter, VariantSettings> output = new();
-            int total = npcs.Count();
-            int current = 0;
-            int matchCount = 0;
-
-            foreach (INpcGetter npc in npcs)
+            if (total != complete)
             {
-                if (callback != null) callback.Invoke(total, ++current, matchCount);
-
-                IEnumerable<VariantSettings> matchingVariants = variants.Where(v => v.Filter?.Test(npc, fieldValueGetter) ?? false);
-                if (matchingVariants.Count() == 0) continue;
-
-                int maxForce = matchingVariants.Max(v => v.ForceCount);
-                matchingVariants = matchingVariants.Where(v => v.ForceCount == maxForce);
-                if (matchingVariants.Count() == 0) continue;
-
-                output.Add(npc, SelectRandomVariant(matchingVariants));
-                matchCount++;
+                int percentComplete = (int)((float)complete / total * 100);
+                Console.WriteLine($"Matching NPCs... [ {complete} of {total} ]  {percentComplete} %\r");
             }
-            if (callback != null) callback.Invoke(total, current, matchCount);
-
-            return output;
-        }
-        private delegate void MatchVariantsCallback(int total, int complete, int matchCount);
-
-        private static VariantSettings SelectRandomVariant(IEnumerable<VariantSettings> variants)
-        {
-            float total = variants.Sum(v => v.Weighting);
-            float random = new Random().NextSingle() * total;
-            float next = 0.0F;
-
-            foreach (VariantSettings variant in variants)
+            else
             {
-                next += variant.Weighting;
-                if (next >= random) return variant;
+                Console.WriteLine($"\r\nFound matches for {matched} of {total} NPCs");
             }
-
-            throw new Exception("Something went wrong. Shouldn't be possible");
         }
     }
 }
