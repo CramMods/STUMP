@@ -55,12 +55,10 @@ namespace CramMods.STUMP
 
         private static VariantUtils.MatchVariantsCallback WriteMatchProgress = (int total, int complete, int matched) =>
         {
-            if (total != complete)
-            {
-                int percentComplete = (int)((float)complete / total * 100);
-                Console.Write($"Matching NPCs... [ {complete} of {total} ]  {percentComplete} %\r");
-            }
-            else
+            int percentComplete = (int)((float)complete / total * 100);
+            Console.Write($"Matching NPCs... [ {complete} of {total} ]  {percentComplete} %\r");
+
+            if (total == complete)
             {
                 Console.WriteLine($"\r\nFound matches for {matched} of {total} NPCs");
             }

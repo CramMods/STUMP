@@ -15,7 +15,7 @@ namespace CramMods.STUMP
 
             foreach (INpcGetter npc in npcs)
             {
-                if (callback != null) callback.Invoke(total, ++current, matchCount);
+                if (callback != null) callback.Invoke(total, current++, matchCount);
 
                 IEnumerable<VariantSettings> matchingVariants = variants.Where(v => v.Filter?.Test(npc, fieldValueGetter) ?? false);
                 if (matchingVariants.Count() == 0) continue;
