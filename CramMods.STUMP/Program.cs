@@ -48,9 +48,9 @@ namespace CramMods.STUMP
 
             Console.WriteLine();
 
-            Console.WriteLine();
-            Console.WriteLine("Press any key to exit");
-            Console.ReadKey();
+            //Console.WriteLine();
+            //Console.WriteLine("Press any key to exit");
+            //Console.ReadKey();
         }
 
         private static VariantUtils.MatchVariantsCallback WriteMatchProgress = (int total, int complete, int matched) =>
