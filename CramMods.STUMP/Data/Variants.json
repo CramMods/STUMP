@@ -1,6 +1,7 @@
 {
   "TexturePacks": {
     "Select": "Single",
+    "Type": "Group",
 
     "Bijin": {
       "Filter": {
@@ -67,8 +68,8 @@
               ]
             },
             "Overrides": [
-              { "Part": "Body", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleold\\femalebody_1_msn.dds" },
-              { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleold\\femalehead_msn.dds" }
+              { "Part": "Body", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleold\\femalebody_1_msn.dds", "Lock": true },
+              { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleold\\femalehead_msn.dds", "Lock": true }
             ]
           }
         },
@@ -78,27 +79,27 @@
 
           "Breton": {
             "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Breton" },
-            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\bretonfemale\\femalehead_msn.dds" } ]
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\bretonfemale\\femalehead_msn.dds", "Lock": true } ]
           },
           "DarkElf": {
             "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "DarkElf" },
-            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\darkelffemale\\femalehead_msn.dds" } ]
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\darkelffemale\\femalehead_msn.dds", "Lock": true } ]
           },
           "Orc": {
             "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Orc" },
-            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleorc\\femalehead_msn.dds" } ]
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\femaleorc\\femalehead_msn.dds", "Lock": true } ]
           },
           "HighElf": {
             "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "HighElf" },
-            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\highelffemale\\femalehead_msn.dds" } ]
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\highelffemale\\femalehead_msn.dds", "Lock": true } ]
           },
           "Imperial": {
             "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Imperial" },
-            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\imperialfemale\\femalehead_msn.dds" } ]
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\imperialfemale\\femalehead_msn.dds", "Lock": true } ]
           },
           "Redguard": {
             "Filter": { "Force": true, "Field": "Race", "Operator": "Contains", "Value": "Redguard" },
-            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\redguardfemale\\femalehead_msn.dds" } ]
+            "Overrides": [ { "Part": "Head", "Type": "Normal", "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\redguardfemale\\femalehead_msn.dds", "Lock": true } ]
           }
         }
       },
@@ -111,6 +112,7 @@
           "Type": "Group",
           "Select": "Single",
           "SkipName": true,
+
           "NoMoles": {
             "Weighting": 0.5,
             "Overrides": [ { "Part": "Head", "Type": "Diffuse", "Path": "Bijin Skin\\01 Options\\No Moles\\textures\\actors\\character\\female\\femalehead.dds" } ]
@@ -127,7 +129,7 @@
   
         "Strong": {
           "Type": "Group",
-          "Overrides": [ { "Part": "Head", "Type": "Diffuse", "Path": "Bijin Skin\\01 Options\\Muscles\\textures\\actors\\character\\female\\femalebody_1_msn.dds" } ],
+          "Overrides": [ { "Part": "Body", "Type": "Diffuse", "Path": "Bijin Skin\\01 Options\\Muscles\\textures\\actors\\character\\female\\femalebody_1_msn.dds", "Lock": true } ],
 
           "Random": { "Weighting": 0.1 },
           "Likely": {
