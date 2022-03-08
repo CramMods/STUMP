@@ -129,7 +129,7 @@
   
         "Strong": {
           "Type": "Group",
-          "Overrides": [ { "Part": "Body", "Type": "Diffuse", "Path": "Bijin Skin\\01 Options\\Muscles\\textures\\actors\\character\\female\\femalebody_1_msn.dds", "Lock": true } ],
+          "Overrides": [ { "Part": "Body", "Type": "Normal", "Path": "Bijin Skin\\01 Options\\Muscles\\textures\\actors\\character\\female\\femalebody_1_msn.dds", "Lock": true } ],
 
           "Random": { "Weighting": 0.1 },
           "Likely": {
