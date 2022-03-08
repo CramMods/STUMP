@@ -6,7 +6,10 @@
     "Bijin": {
       "Filter": {
         "Operator": "AND",
-        "Filters": [{ "Field": "Gender", "Value": "Female" }]
+        "Filters": [
+          { "Field": "Gender", "Value": "Female" },
+          { "Field": "RaceGroup", "Value": "Humanoid" }
+        ]
       },
       "Overrides": [
         { "Part": "Body", "Type": "Diffuse",  "Path": "Bijin Skin\\00 Main\\textures\\actors\\character\\female\\femalebody_1.dds" },
