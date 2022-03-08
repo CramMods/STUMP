@@ -58,7 +58,7 @@ namespace CramMods.STUMP
             if (total != complete)
             {
                 int percentComplete = (int)((float)complete / total * 100);
-                Console.WriteLine($"Matching NPCs... [ {complete} of {total} ]  {percentComplete} %\r");
+                Console.Write($"Matching NPCs... [ {complete} of {total} ]  {percentComplete} %\r");
             }
             else
             {
