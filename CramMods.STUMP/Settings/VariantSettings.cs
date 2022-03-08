@@ -46,50 +46,55 @@ namespace CramMods.STUMP.Settings
         {
             List<VariantSettings> output = new();
 
-            List<VariantSettings> normal = _variants
-                .FindAll(v => !v.Type.HasFlag(VariantType.Addon))
+            output.Add(this);
+
+            output.AddRange(_variants
+                .Where(v => !v.Type.HasFlag(VariantType.Addon))
                 .SelectMany(v => v.Flatten())
-                .ToList();
+                .Select(v => Merge(v))
+                .Where(v => v != null)
+                .Select(v => v!));
 
             List<List<VariantSettings>> addonGroups = _variants
-                .FindAll(v => v.Type.HasFlag(VariantType.Addon))
+                .Where(v => v.Type.HasFlag(VariantType.Addon))
                 .Select(v => v.Flatten())
                 .ToList();
 
-            if (!_type.HasFlag(VariantType.Group)) output.Add(this);
-
-            foreach (VariantSettings item in normal) output.Add(Merge(item));
-
             foreach (List<VariantSettings> addonGroup in addonGroups)
             {
-                foreach (VariantSettings baseItem in output.ToList())
+                foreach (VariantSettings variant in output.ToList())
                 {
                     foreach (VariantSettings addon in addonGroup)
                     {
-                        output.Add(baseItem.AddAddon(addon));
+                        VariantSettings? merged = variant.AddAddon(addon);
+                        if (merged != null) output.Add(merged);
                     }
                 }
             }
 
+            if (_type.HasFlag(VariantType.Group) || ((_overrides.Count == 0) && (_variants.Count > 0))) output.Remove(this);
+
             return output;
         }
 
-        public VariantSettings Merge(VariantSettings other)
+        public VariantSettings? Merge(VariantSettings other)
         {
             VariantSettings output = new();
             output.Name = (string.IsNullOrEmpty(_name) || SkipName) ? other.Name : $"{_name}.{other.Name}";
             output.Type = _type & ~VariantType.Group;
             output.Select = VariantSelectMode.Single;
-            output.Filter = FilterMerger.Merge(_filter, other.Filter);
-            output.Overrides = new List<Override>().Concat(_overrides).Concat(other.Overrides).ToList();
+            output.Filter = FilterUtils.Merge(_filter, other.Filter);
+            List<Override>? mergedOverrides = OverrideUtils.Merge(_overrides, other.Overrides);
+            if (mergedOverrides == null) return null;
+            output.Overrides = mergedOverrides;
             output.Weighting = _weighting * other.Weighting;
             return output;
         }
 
-        public VariantSettings AddAddon(VariantSettings addon)
+        public VariantSettings? AddAddon(VariantSettings addon)
         {
-            VariantSettings output = Merge(addon);
-            output.Name = $"{_name} +{addon.Name}";
+            VariantSettings? output = Merge(addon);
+            if (output != null) output.Name = $"{_name} +{addon.Name}";
             return output;
         }
     }
