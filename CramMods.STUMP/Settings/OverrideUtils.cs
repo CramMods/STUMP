@@ -8,7 +8,7 @@
 
             foreach (Override over2 in overrides2)
             {
-                Override? matching = output.FirstOrDefault(o => (o.Type == over2.Type) && (o.Part == over2.Part))?.Clone();
+                Override? matching = output.FirstOrDefault(o => (o.Type == over2.Type) && (o.Part == over2.Part));
                 if (matching == null)
                 {
                     matching = new() { Part = over2.Part, Type = over2.Type };
