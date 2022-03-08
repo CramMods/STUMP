@@ -64,6 +64,6 @@ namespace CramMods.STUMP
             {
                 Console.WriteLine($"\r\nFound matches for {matched} of {total} NPCs");
             }
-        }
+        };
     }
 }
