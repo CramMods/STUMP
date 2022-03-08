@@ -34,7 +34,11 @@ namespace CramMods.STUMP.Settings
         public List<VariantSettings> Variants { get => _variants; set => _variants = value; }
 
         public int ForceCount => (_filter == null) ? 0 : FilterForceCount(_filter);
-        private int FilterForceCount(IFilter filter) => (filter is GroupFilter) ? ((GroupFilter)filter).Filters.Sum(f => FilterForceCount(f)) : (filter.Extensions.ContainsKey("Force") && ((bool)filter.Extensions["Force"]! == true)) ? 1 : 0;
+        private int FilterForceCount(IFilter filter) {
+            int count = (filter.Extensions.ContainsKey("Force") && ((bool)filter.Extensions["Force"]! == true)) ? 1 : 0;
+            if (filter is GroupFilter) count += ((GroupFilter)filter).Filters.Sum(f => FilterForceCount(f));
+            return count;
+        }
 
         public override string ToString()
         {
