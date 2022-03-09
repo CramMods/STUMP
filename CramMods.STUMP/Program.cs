@@ -1,14 +1,14 @@
 using Mutagen.Bethesda;
 using Mutagen.Bethesda.Skyrim;
 using Mutagen.Bethesda.Synthesis;
+using CramMods.NARFI;
 using CramMods.NARFI.Skyrim;
+using CramMods.STUMP.Helpers;
 using CramMods.STUMP.Readers;
 using CramMods.STUMP.Types;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CramMods.STUMP.Helpers;
-using CramMods.NARFI;
-using System;
 
 namespace CramMods.STUMP
 {
