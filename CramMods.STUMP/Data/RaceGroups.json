@@ -1,0 +1,21 @@
+{
+  "Argonian": [ "ArgonianRace", "ArgonianRaceVampire" ],
+  "Breton": [ "BretonRace", "BretonRaceVampire", "DA13AfflictedRace" ],
+  "DarkElf": [ "DarkElfRace", "DarkElfRaceVampire" ],
+  "Elder": [ "ElderRace", "ElderRaceVampire" ],
+  "HighElf": [ "HighElfRace", "HighElfRaceVampire" ],
+  "Imperial": [ "ImperialRace", "ImperialRaceVampire" ],
+  "Khajiit": [ "KhajiitRace", "KhajiitRaceVampire" ],
+  "Nord": [ "NordRace", "NordRaceVampire" ],
+  "Orc": [ "OrcRace", "OrcRaceVampire" ],
+  "Redguard": [ "RedguardRace", "RedguardRaceVampire" ],
+  "SnowElf": [ "SnowElfRace", "SnowElfRaceVampire" ],
+  "WoodElf": [ "WoodElfRace", "WoodElfRaceVampire" ],
+
+  "Human": [ "Breton", "Elder", "Imperial", "Nord", "Redguard" ],
+  "Elf": [ "DarkElf", "HighElf", "SnowElf", "WoodElf" ],
+  "Humanoid": [ "Human", "Elf", "Orc" ],
+  "Beast": [ "Argonian", "Khajiit" ],
+
+  "All": [ "Humanoid", "Beast" ]
+}

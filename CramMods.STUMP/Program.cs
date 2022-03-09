@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Mutagen.Bethesda;
 using Mutagen.Bethesda.Synthesis;
 using Mutagen.Bethesda.Skyrim;
 using System.Threading.Tasks;
+using CramMods.STUMP.Readers;
+using CramMods.NARFI.Skyrim;
+using CramMods.STUMP.Types;
 
 namespace CramMods.STUMP
 {
@@ -20,7 +22,10 @@ namespace CramMods.STUMP
 
         public static void RunPatch(IPatcherState<ISkyrimMod, ISkyrimModGetter> state)
         {
-            //Your code here!
+            // Read Settings
+            IReadOnlyList<RaceGroup> raceGroups = RaceGroupsReader.Read(state);
+            IReadOnlyList<Variant> variants = VariantsReader.Read(state);
+            throw new Exception();
         }
     }
 }
