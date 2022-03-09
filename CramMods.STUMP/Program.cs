@@ -36,6 +36,7 @@ namespace CramMods.STUMP
             List<RaceGroup> raceGroups = RaceGroupSettings.Value.Flatten(races).ToList();
             List<VariantSettings> variants = VariantSettings.Value.Flatten();
 
+            /*
             SkyrimPlugin skyrimPlugin = new();
             skyrimPlugin.SetRaceGroups(raceGroups);
 
@@ -43,10 +44,20 @@ namespace CramMods.STUMP
             narfi.RegisterPlugin(skyrimPlugin);
 
             Dictionary<INpcGetter, VariantSettings> matches = VariantUtils.MatchVariants(npcs, variants, narfi, WriteMatchProgress);
+
             List<VariantSettings> distinctVariants = matches.Values.DistinctBy(v => v.ToString()).ToList();
             Console.WriteLine($"There are {distinctVariants.Count} distinct variants");
 
             Console.WriteLine();
+            */
+
+            INpcGetter npcBase = npcs.First(n => n.EditorID == "Gerdur");
+            Npc npc = state.PatchMod.Npcs.GetOrAddAsOverride(npcBase);
+
+            BodyBuilder skinBuilder = new(state.PatchMod);
+            IArmor skin = skinBuilder.BuildSkin(npc, variants[61]);
+
+            npc.WornArmor = skin.AsNullableLink();
 
             //Console.WriteLine();
             //Console.WriteLine("Press any key to exit");
