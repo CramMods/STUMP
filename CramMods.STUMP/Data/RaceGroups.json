@@ -1,6 +1,6 @@
 {
   "Argonian": [ "ArgonianRace", "ArgonianRaceVampire" ],
-  "Breton": [ "BretonRace", "BretonRaceVampire" ],
+  "Breton": [ "BretonRace", "BretonRaceVampire", "DA13AfflictedRace" ],
   "DarkElf": [ "DarkElfRace", "DarkElfRaceVampire" ],
   "Elder": [ "ElderRace", "ElderRaceVampire" ],
   "HighElf": [ "HighElfRace", "HighElfRaceVampire" ],
