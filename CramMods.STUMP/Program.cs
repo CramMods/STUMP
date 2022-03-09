@@ -1,12 +1,11 @@
-using System;
-using System.Collections.Generic;
 using Mutagen.Bethesda;
-using Mutagen.Bethesda.Synthesis;
 using Mutagen.Bethesda.Skyrim;
-using System.Threading.Tasks;
-using CramMods.STUMP.Readers;
+using Mutagen.Bethesda.Synthesis;
 using CramMods.NARFI.Skyrim;
+using CramMods.STUMP.Readers;
 using CramMods.STUMP.Types;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CramMods.STUMP
 {
@@ -16,7 +15,7 @@ namespace CramMods.STUMP
         {
             return await SynthesisPipeline.Instance
                 .AddPatch<ISkyrimMod, ISkyrimModGetter>(RunPatch)
-                .SetTypicalOpen(GameRelease.SkyrimSE, "YourPatcher.esp")
+                .SetTypicalOpen(GameRelease.SkyrimSE, "STUMP.esp")
                 .Run(args);
         }
 
@@ -25,7 +24,8 @@ namespace CramMods.STUMP
             // Read Settings
             IReadOnlyList<RaceGroup> raceGroups = RaceGroupsReader.Read(state);
             IReadOnlyList<Variant> variants = VariantsReader.Read(state);
-            throw new Exception();
+
+
         }
     }
 }
