@@ -33,6 +33,7 @@
 	  <PackageReference Include="CramMods.NARFI.Core" Version="0.1.4" />
 	  <PackageReference Include="CramMods.NARFI.Skyrim" Version="0.1.4" />
 	  <PackageReference Include="Mutagen.Bethesda" Version="0.36.0" />
+	  <PackageReference Include="Mutagen.Bethesda.FormKeys.SkyrimSE" Version="2.1.0" />
 	  <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.22.1" />
 	</ItemGroup>
 
