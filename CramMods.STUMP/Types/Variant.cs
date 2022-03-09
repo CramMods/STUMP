@@ -97,7 +97,7 @@ namespace CramMods.STUMP.Types
             output.Type = _type & ~VariantType.Group;
             output.Select = VariantSelectMode.Single;
             output.Filter = FilterUtils.Merge(_filter, other.Filter);
-            List<Override>? mergedOverrides = OverrideUtils.Merge(_overrides, other.Overrides);
+            List<Override>? mergedOverrides = OverrideUtil.Merge(_overrides, other.Overrides);
             if (mergedOverrides == null) return null;
             output.Overrides = mergedOverrides;
             output.Weighting = _weighting * other.Weighting;
